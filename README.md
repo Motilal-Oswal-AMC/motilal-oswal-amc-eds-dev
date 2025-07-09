@@ -2,8 +2,8 @@
 Your project's description...
 
 ## Environments
-- Preview: https://main--{repo}--{owner}.aem.page/
-- Live: https://main--{repo}--{owner}.aem.live/
+- Preview: https://main--motilal-oswal-amc-eds-dev--Motilal-Oswal-AMC.aem.page/
+- Live: https://main--motilal-oswal-amc-eds-dev--Motilal-Oswal-AMC.aem.live/
 
 ## Documentation
 
