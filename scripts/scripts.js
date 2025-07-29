@@ -147,3 +147,4 @@ async function loadPage() {
 }
 
 loadPage();
+console.log('Motilal Oswal - EDS - STAGE ENV - Loaded');
