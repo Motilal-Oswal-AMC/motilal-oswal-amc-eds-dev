@@ -1,3 +1,4 @@
+/* eslint-disable */
 import {
   decorateBlock,
   decorateBlocks,
@@ -6,28 +7,42 @@ import {
   decorateSections,
   loadBlock,
   loadScript,
-  loadSections,
+  loadSections
 } from './aem.js';
-import { decorateRichtext } from './editor-support-rte.js';
-import { decorateMain } from './scripts.js';
+import {
+  decorateRichtext
+} from './editor-support-rte.js';
+import {
+  decorateMain
+} from './scripts.js';
 
 async function applyChanges(event) {
   // redecorate default content and blocks on patches (in the properties rail)
-  const { detail } = event;
+  const {
+    detail
+  } = event;
 
   const resource = detail?.request?.target?.resource // update, patch components
-    || detail?.request?.target?.container?.resource // update, patch, add to sections
-    || detail?.request?.to?.container?.resource; // move in sections
+    ||
+    detail?.request?.target?.container?.resource // update, patch, add to sections
+    ||
+    detail?.request?.to?.container?.resource; // move in sections
   if (!resource) return false;
   const updates = detail?.response?.updates;
   if (!updates.length) return false;
-  const { content } = updates[0];
+  const {
+    content
+  } = updates[0];
   if (!content) return false;
 
   // load dompurify
   await loadScript(`${window.hlx.codeBasePath}/scripts/dompurify.min.js`);
 
-  const sanitizedContent = window.DOMPurify.sanitize(content, { USE_PROFILES: { html: true } });
+  const sanitizedContent = window.DOMPurify.sanitize(content, {
+    USE_PROFILES: {
+      html: true
+    }
+  });
   const parsedUpdate = new DOMParser().parseFromString(sanitizedContent, 'text/html');
   const element = document.querySelector(`[data-aue-resource="${resource}"]`);
 
@@ -66,7 +81,9 @@ async function applyChanges(event) {
       // sections and default content, may be multiple in the case of richtext
       const newElements = parsedUpdate.querySelectorAll(`[data-aue-resource="${resource}"],[data-richtext-resource="${resource}"]`);
       if (newElements.length) {
-        const { parentElement } = element;
+        const {
+          parentElement
+        } = element;
         if (element.matches('.section')) {
           const [newSection] = newElements;
           newSection.style.display = 'none';
