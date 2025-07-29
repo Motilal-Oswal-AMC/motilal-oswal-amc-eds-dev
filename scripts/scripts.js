@@ -1,3 +1,5 @@
+/* eslint-disable*/
+console.log('Motilal Oswal - EDS - STAGE ENV');
 import {
   loadHeader,
   loadFooter,
