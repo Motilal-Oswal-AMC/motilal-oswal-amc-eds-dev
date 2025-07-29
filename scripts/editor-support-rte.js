@@ -1,3 +1,4 @@
+/* eslint-disable */
 /* eslint-disable no-console */
 /* eslint-disable no-cond-assign */
 /* eslint-disable import/prefer-default-export */
@@ -26,8 +27,8 @@ export function decorateRichtext(container = document) {
     const siblings = [];
     let sibling = element;
     while (sibling = sibling.nextElementSibling) {
-      if (sibling.dataset.richtextResource === richtextResource
-        && sibling.dataset.richtextProp === richtextProp) {
+      if (sibling.dataset.richtextResource === richtextResource &&
+        sibling.dataset.richtextProp === richtextProp) {
         deleteInstrumentation(sibling);
         siblings.push(sibling);
       } else break;
@@ -47,8 +48,8 @@ export function decorateRichtext(container = document) {
     }
 
     if (orphanElements.length) {
-      console.warn('Found orphan elements of a richtext, that were not consecutive siblings of '
-        + 'the first paragraph', orphanElements);
+      console.warn('Found orphan elements of a richtext, that were not consecutive siblings of ' +
+        'the first paragraph', orphanElements);
       orphanElements.forEach((orphanElement) => deleteInstrumentation(orphanElement));
     } else {
       const group = document.createElement('div');
@@ -69,6 +70,9 @@ export function decorateRichtext(container = document) {
 // in cases where the block decoration is not done in one synchronous iteration we need to listen
 // for new richtext-instrumented elements
 const observer = new MutationObserver(() => decorateRichtext());
-observer.observe(document, { attributeFilter: ['data-richtext-prop'], subtree: true });
+observer.observe(document, {
+  attributeFilter: ['data-richtext-prop'],
+  subtree: true
+});
 
 decorateRichtext();
