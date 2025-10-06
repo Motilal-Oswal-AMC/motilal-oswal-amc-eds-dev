@@ -1,20 +1,37 @@
 <!DOCTYPE html>
-<html lang="en">
-
-<head>
+<html>
+  <head>
     <title>{{title}}</title>
-    <meta name="description" content="{{body}}">
-</head>
-
-<body>
+  </head>
+  <body>
+    <header></header>
     <main>
-        <article>
-            <h1>{{title}}</h1>
-            <p><strong>Post ID:</strong> {{id}}</p>
-            <p><strong>User:</strong> {{userId}}</p>
-            <p>{{body}}</p>
-        </article>
+      <div>
+        <div class="hero">
+          <div>
+            <div>
+              <p>
+                <picture>
+                  <img loading="lazy" alt="" src="myimage.jpg">
+                </picture>
+              </p>
+              <h1>Hello World, {{title}}</h1>
+            </div>
+          </div>
+        </div>
+        <p>Welcome to your website.</p>
+        <div class="metadata">
+          <div>
+            <div>
+              <p>Description</p>
+            </div>
+            <div>
+              <p>Page Description</p>
+            </div>
+          </div>
+        </div>
+      </div>
     </main>
-</body>
-
+    <footer></footer>
+  </body>
 </html>
