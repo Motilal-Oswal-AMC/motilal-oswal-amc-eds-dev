@@ -8,6 +8,6 @@
   ],
   "includes": [
     "/content/mosl/",
-    "content/mosl-eds/"
+    "/content/mosl-eds/"
   ]
 }
