@@ -2,9 +2,12 @@
   "mappings": [
     "/content/mosl/:/",
     "/content/mosl/configuration:/.helix/config.json",
-    "/content/mosl/metadata:/metadata.json"
+    "/content/mosl/metadata:/metadata.json",
+    "/content/mosl-eds/:/"
+    
   ],
   "includes": [
-    "/content/mosl/"
+    "/content/mosl/",
+    "content/mosl-eds/"
   ]
 }
